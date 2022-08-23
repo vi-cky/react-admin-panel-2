@@ -1,0 +1,38 @@
+.navb {
+  height: 60px;
+  padding-left: 30px;
+  padding-right: 20px;
+  background-color: brown !important;
+  height: 100%;
+}
+.my-node-enter {
+  opacity: 0;
+}
+.my-node-enter-active {
+  opacity: 1;
+  transition: opacity 200ms;
+}
+.my-node-exit {
+  opacity: 1;
+}
+.my-node-exit-active {
+  opacity: 0;
+  transition: opacity 200ms;
+}
+
+.navbarSearchBtn {
+  border-radius: 10px;
+  width: 180px;
+  height: 40px;
+}
+
+.navbarLogBtn {
+  border-radius: 10px;
+  width: 100px;
+  height: 40px;
+}
+
+.navbarLangSelect {
+  background: red;
+  height: 40px;
+}
