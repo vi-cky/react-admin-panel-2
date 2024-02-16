@@ -5,11 +5,13 @@ import {
   TableOutlined,
   UserAddOutlined,
   UserOutlined,
+  MenuFoldOutlined,
+  MenuUnfoldOutlined,
 } from "@ant-design/icons";
-import { Layout, Menu } from "antd";
+import { Button, Layout, Menu } from "antd";
 import React, { useState } from "react";
 import "./App";
-import "antd/dist/antd.min.css";
+
 import Navbar from "./components/navbar/Navbar";
 import ContentPage from "./components/content/ContentPage";
 import SubMenu from "antd/lib/menu/SubMenu";
@@ -25,11 +27,18 @@ const App = () => {
 
   return (
     <Layout>
-      <Header style={{ backgroundColor: "#f0f2f5", padding: "0px 10px 0px 10px" }}>
+      <Header
+        style={{ backgroundColor: "#f0f2f5", padding: "0px 10px 0px 10px" }}
+      >
         <Navbar collapsed={collapsed} toggleCollapsed={toggleCollapsed} />
       </Header>
       <Layout>
-        <Sider collapsed={collapsed} style={{ backgroundColor: "#f0f2f5" }}>
+        <Sider
+          collapsed={collapsed}
+          style={{ backgroundColor: "#f0f2f5" }}
+          collapsible
+          onClick={toggleCollapsed}
+        >
           <Menu
             style={{ backgroundColor: "#f0f2f5" }}
             defaultSelectedKeys={["1"]}
@@ -85,26 +94,43 @@ const App = () => {
             </Menu.Item>
           </Menu>
         </Sider>
-        <Layout>
-          <Content style={{ padding: "10px 15px" }}>
-            <div
-              style={{
-                backgroundColor: "#fff",
-                padding: "15px",
-                minHeight: "560px",
-              }}
-            >
-              <ContentPage />
-            </div>
-          </Content>
-          <Footer
+        <Content>
+          <div
+            style={{
+              backgroundColor: "#fff",
+              padding: "15px",
+              minHeight: "786px",
+            }}
+          >
+            <ContentPage />
+          </div>
+
+         
+        </Content>
+
+        {/* <Button
+            type="primary"
+            onClick={toggleCollapsed}
+            style={{
+              fontSize: '16px',
+              width: 50,
+              height: 50,
+            }}
+          >
+            {collapsed ? (
+              <MenuUnfoldOutlined style={{ fontSize: "16px" }} />
+            ) : (
+              <MenuFoldOutlined style={{ fontSize: "16px" }} />
+            )}
+          </Button> */}
+
+        {/* <Footer
             style={{
               textAlign: "center",
             }}
           >
             Copyright ©2022 Created by Mukhtorov
-          </Footer>
-        </Layout>
+          </Footer> */}
       </Layout>
     </Layout>
   );

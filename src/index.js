@@ -3,7 +3,9 @@ import ReactDOM from "react-dom/client";
 import { HashRouter } from "react-router-dom";
 import App from "./App";
 import { LoadingOutlined } from "@ant-design/icons";
-import { Spin } from "antd";
+import { ConfigProvider, Spin } from "antd";
+import { theme } from "./custom-theme";
+
 const antIcon = (
   <LoadingOutlined
     style={{
@@ -16,8 +18,8 @@ const antIcon = (
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <HashRouter>
-    <Suspense fallback={<Spin indicator={antIcon} />}>
+    <ConfigProvider theme={theme}>
       <App />
-    </Suspense>
+    </ConfigProvider>
   </HashRouter>
 );
